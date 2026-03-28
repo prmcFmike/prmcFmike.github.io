@@ -11,21 +11,18 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #e8f5e9;
             color: #1b3b1a;
             line-height: 1.5;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* 导航栏 - 图标保持正常大小 */
+        /* 导航 */
         .navbar {
             background: #2e7d32;
             padding: 14px 0;
@@ -74,12 +71,10 @@
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            transition: 0.2s;
         }
         .nav-links a:hover {
             color: #ffd966;
         }
-
         /* 英雄区 */
         .hero {
             text-align: center;
@@ -98,7 +93,6 @@
             color: #2e6b2f;
             margin-top: 12px;
         }
-
         /* 统计卡片 */
         .stats-row {
             display: flex;
@@ -136,8 +130,7 @@
             color: #f57c00;
             margin-top: 6px;
         }
-
-        /* 产品中心 - 轮播图（放大展示） */
+        /* 通用区块标题 */
         .section-title {
             font-size: 1.6rem;
             font-weight: 700;
@@ -146,10 +139,11 @@
             border-left: 5px solid #2e7d32;
             padding-left: 16px;
         }
+        /* 产品轮播 */
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 1000px;    /* 放大轮播图宽度 */
+            max-width: 1000px;
             margin: 0 auto 40px;
             overflow: hidden;
             border-radius: 28px;
@@ -168,7 +162,6 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 28px;
         }
         .carousel-btn {
             position: absolute;
@@ -188,12 +181,8 @@
         .carousel-btn:hover {
             background: #2e7d32;
         }
-        .btn-prev {
-            left: 12px;
-        }
-        .btn-next {
-            right: 12px;
-        }
+        .btn-prev { left: 12px; }
+        .btn-next { right: 12px; }
         .carousel-dots {
             position: absolute;
             bottom: 16px;
@@ -210,15 +199,13 @@
             background: rgba(255,255,255,0.6);
             border-radius: 50%;
             cursor: pointer;
-            transition: background 0.2s;
         }
         .dot.active {
             background: #ffd966;
             width: 24px;
             border-radius: 6px;
         }
-
-        /* 热门游戏排行榜 */
+        /* 热门游戏下载榜 */
         .hot-games {
             background: #fff;
             border-radius: 28px;
@@ -245,7 +232,6 @@
             padding: 12px 18px;
             background: #f9fbe7;
             border-radius: 60px;
-            transition: 0.2s;
         }
         .game-item:hover {
             background: #e8f5e9;
@@ -256,13 +242,20 @@
             align-items: center;
             gap: 12px;
         }
-        .badge-hot {
-            background: #ffb74d;
-            color: #5d2e00;
-            padding: 2px 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: bold;
+        .game-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #e8f5e9;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .game-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .game-download {
             color: #2e7d32;
@@ -274,40 +267,61 @@
             color: #8b9a6e;
             margin-top: 12px;
         }
-
-        /* 玩家评论区域 */
+        /* 评论滚动区域 */
         .reviews {
             background: #fff;
             border-radius: 28px;
             padding: 24px;
             margin: 30px 0 40px;
             border: 1px solid #c8e6c9;
+            overflow: hidden;
         }
         .reviews h3 {
             color: #1b5e20;
             font-size: 1.4rem;
             margin-bottom: 20px;
         }
+        .review-scroll {
+            position: relative;
+            height: 360px;
+            overflow: hidden;
+        }
+        .review-track {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+        }
+        .review-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 8px 0;
+        }
         .review-item {
             display: flex;
             gap: 16px;
-            padding: 18px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #e0f2e0;
         }
         .review-item:last-child {
             border-bottom: none;
         }
         .avatar {
-            background: #c8e6c9;
             width: 48px;
             height: 48px;
             border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #c8e6c9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #2e7d32;
+            font-size: 1.5rem;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .review-content {
             flex: 1;
@@ -333,25 +347,7 @@
             color: #8b9a6e;
             margin-top: 8px;
         }
-        .more-btn {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .more-btn button {
-            background: #2e7d32;
-            border: none;
-            color: white;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .more-btn button:hover {
-            background: #1b5e20;
-        }
-
-        /* 游戏推荐卡片区域 */
+        /* 游戏推荐卡片 */
         .game-recommend {
             background: #fff;
             border-radius: 28px;
@@ -394,9 +390,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            color: #2e7d32;
+            overflow: hidden;
             flex-shrink: 0;
+        }
+        .game-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .game-detail {
             flex: 1;
@@ -440,7 +440,6 @@
             font-weight: 600;
             font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
         }
         .btn-download-game:hover {
             background: #1b5e20;
@@ -479,10 +478,6 @@
             font-size: 28px;
             margin-bottom: 8px;
         }
-        .qr-section p {
-            font-size: 0.7rem;
-            color: #5d6e53;
-        }
         .view-more {
             text-align: center;
             margin-top: 20px;
@@ -500,8 +495,7 @@
             background: #2e7d32;
             color: white;
         }
-
-        /* 右侧悬浮二维码 - 保持正常大小 */
+        /* 右侧悬浮二维码 */
         .qr-float {
             position: fixed;
             right: 20px;
@@ -547,8 +541,7 @@
             margin-top: 4px;
             color: #2e7d32;
         }
-
-        /* 底部详细信息区域 */
+        /* 底部 */
         .footer-detailed {
             background: #1b5e20;
             color: #c8e6c9;
@@ -631,40 +624,22 @@
             padding-top: 16px;
             border-top: 1px solid #3e8e41;
         }
-
         @media (max-width: 700px) {
-            .nav-links {
-                gap: 16px;
-                font-size: 0.85rem;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .qr-float {
-                display: none;
-            }
-            .recommend-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .qr-section {
-                margin-top: 12px;
-            }
-            .carousel-container {
-                max-width: 100%;
-            }
+            .nav-links { gap: 16px; font-size: 0.85rem; }
+            .hero h2 { font-size: 1.8rem; }
+            .qr-float { display: none; }
+            .recommend-card { flex-direction: column; align-items: center; text-align: center; }
+            .review-scroll { height: 380px; }
         }
     </style>
 </head>
 <body>
-
 <!-- 导航栏 -->
 <div class="navbar">
     <div class="container nav-inner">
         <div class="logo">
             <div class="logo-icon">
-                <img src="https://i.imgs.ovh/2026/03/27/OYMt9m.png" alt="葫芦侠图标" onerror="this.style.display='none'">
+                <img src="https://f1.gsxx.sh.cn/gsxx/imgfile/20250910/10174214lccc.png" alt="葫芦侠图标" onerror="this.onerror=null; this.src='https://i.imgs.ovh/2026/03/27/OYMt9m.png';">
             </div>
             <h1>葫芦侠</h1>
         </div>
@@ -676,7 +651,6 @@
         </div>
     </div>
 </div>
-
 <!-- 英雄区 -->
 <div class="hero">
     <div class="container">
@@ -684,360 +658,171 @@
         <p>玩游戏的虚拟机 · 畅玩各类手游的神器</p>
     </div>
 </div>
-
 <div class="container">
     <!-- 统计卡片 -->
     <div class="stats-row">
-        <div class="stat-card">
-            <div class="stat-number">128,392,771</div>
-            <div class="stat-label"><i class="fas fa-mobile-alt"></i> 装机总数</div>
-            <div class="stat-trend"><i class="fas fa-arrow-up"></i> 较昨日 +12.4w</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">3.52 亿</div>
-            <div class="stat-label"><i class="fas fa-download"></i> 累计下载量</div>
-            <div class="stat-trend">历史总下载突破3.5亿</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">4.86</div>
-            <div class="stat-label"><i class="fas fa-star"></i> 玩家评分</div>
-            <div class="stat-trend">基于44.2w条评价</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">302w+</div>
-            <div class="stat-label"><i class="fas fa-users"></i> 日活跃侠友</div>
-            <div class="stat-trend">今日峰值412w</div>
-        </div>
+        <div class="stat-card"><div class="stat-number">128,392,771</div><div class="stat-label"><i class="fas fa-mobile-alt"></i> 装机总数</div><div class="stat-trend"><i class="fas fa-arrow-up"></i> 较昨日 +12.4w</div></div>
+        <div class="stat-card"><div class="stat-number">3.52 亿</div><div class="stat-label"><i class="fas fa-download"></i> 累计下载量</div><div class="stat-trend">历史总下载突破3.5亿</div></div>
+        <div class="stat-card"><div class="stat-number">4.86</div><div class="stat-label"><i class="fas fa-star"></i> 玩家评分</div><div class="stat-trend">基于44.2w条评价</div></div>
+        <div class="stat-card"><div class="stat-number">302w+</div><div class="stat-label"><i class="fas fa-users"></i> 日活跃侠友</div><div class="stat-trend">今日峰值412w</div></div>
     </div>
-
-    <!-- 产品中心 - 放大轮播图 -->
+    <!-- 产品中心轮播图 -->
     <div class="section-title">产品中心</div>
     <div class="carousel-container">
         <div class="carousel-slides" id="carouselSlides">
-            <div class="carousel-slide" data-index="0">
-                <img src="https://i.imgs.ovh/2026/03/27/OYMSNd.png" alt="葫芦侠·畅玩各类手游的神器·江湖路漫漫">
-            </div>
-            <div class="carousel-slide" data-index="1">
-                <img src="https://i.imgs.ovh/2026/03/27/OYMqkx.png" alt="葫芦侠">
-            </div>
-            <div class="carousel-slide" data-index="2">
-                <img src="https://i.imgs.ovh/2026/03/27/OYPV0N.png" alt="葫芦侠虚拟机·玩游戏的虚拟机">
-            </div>
+            <div class="carousel-slide"><img src="https://i.imgs.ovh/2026/03/27/OYMSNd.png" alt="葫芦侠·畅玩各类手游的神器·江湖路漫漫"></div>
+            <div class="carousel-slide"><img src="https://i.imgs.ovh/2026/03/27/OYMqkx.png" alt="葫芦侠"></div>
+            <div class="carousel-slide"><img src="https://i.imgs.ovh/2026/03/27/OYPV0N.png" alt="葫芦侠虚拟机"></div>
         </div>
         <button class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         <div class="carousel-dots" id="carouselDots"></div>
     </div>
-
-    <!-- 热门游戏排行榜 -->
+    <!-- 热门游戏下载榜 -->
     <div class="hot-games">
         <h3><i class="fas fa-fire" style="color:#f57c00;"></i> 热门游戏下载榜</h3>
         <div class="game-list">
-            <div class="game-item">
-                <span class="game-name"><span class="badge-hot">🔥 1</span> 暗黑纪元·觉醒</span>
-                <span class="game-download"><i class="fas fa-download"></i> 128.4w次下载</span>
-            </div>
-            <div class="game-item">
-                <span class="game-name"><span class="badge-hot">🔥 2</span> 葫芦侠·模拟器</span>
-                <span class="game-download"><i class="fas fa-download"></i> 256.7w次下载</span>
-            </div>
-            <div class="game-item">
-                <span class="game-name"><span class="badge-hot">🔥 3</span> 猛兽派对·乱斗</span>
-                <span class="game-download"><i class="fas fa-download"></i> 345.1w次下载</span>
-            </div>
-            <div class="game-item">
-                <span class="game-name"><span class="badge-hot">🔥 4</span> 无尽梦回</span>
-                <span class="game-download"><i class="fas fa-download"></i> 89.2w次下载</span>
-            </div>
+            <div class="game-item"><span class="game-name"><span class="game-icon"><img src="https://i.imgs.ovh/2026/03/28/Ol0r7h.png" alt="烟雨江湖" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-cloud-moon\'></i>';"></span>烟雨江湖</span><span class="game-download"><i class="fas fa-download"></i> 234.6w次下载</span></div>
+            <div class="game-item"><span class="game-name"><span class="game-icon"><img src="https://i.imgs.ovh/2026/03/28/Ol0vAe.png" alt="暴走英雄坛" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-fist-raised\'></i>';"></span>暴走英雄坛</span><span class="game-download"><i class="fas fa-download"></i> 187.3w次下载</span></div>
+            <div class="game-item"><span class="game-name"><span class="game-icon"><img src="https://img.ddooo.com/logo/20260209/63ec2fab2ea7cd68748535527108e975.png" alt="元气骑士" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-khanda\'></i>';"></span>元气骑士</span><span class="game-download"><i class="fas fa-download"></i> 892.4w次下载</span></div>
+            <div class="game-item"><span class="game-name"><span class="game-icon"><img src="https://i.imgs.ovh/2026/03/28/Ol0FJa.png" alt="战魂铭人" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-dragon\'></i>';"></span>战魂铭人</span><span class="game-download"><i class="fas fa-download"></i> 156.8w次下载</span></div>
         </div>
         <div class="update-time">📊 数据实时更新 | 今日下载量 +24,689</div>
     </div>
-
-    <!-- 玩家评论区域 -->
+    <!-- 侠友热评 - 头像多样化 + 葫芦侠图标 -->
     <div class="reviews">
         <h3><i class="fas fa-comment-dots"></i> 侠友热评 · 真实体验</h3>
-        <div class="review-item">
-            <div class="avatar"><i class="fas fa-user-ninja"></i></div>
-            <div class="review-content">
-                <div class="review-name">
-                    葫芦小金刚
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                </div>
-                <div class="review-text">“在葫芦侠找到超多游戏资源，下载量真实可见，装机总数一目了然，社区氛围超棒！”</div>
-                <div class="review-date">2025年2月18日 · 来自葫芦侠APP</div>
-            </div>
-        </div>
-        <div class="review-item">
-            <div class="avatar"><i class="fas fa-gamepad"></i></div>
-            <div class="review-content">
-                <div class="review-name">
-                    夜风侠
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
-                <div class="review-text">“装机总数突破1.2亿让我更信赖平台，虚拟机神器真的流畅，扫码下载超方便。”</div>
-                <div class="review-date">2025年2月15日 · 葫芦侠PC端</div>
-            </div>
-        </div>
-        <div class="review-item">
-            <div class="avatar"><i class="fas fa-code"></i></div>
-            <div class="review-content">
-                <div class="review-name">
-                    搞机少年
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
-                <div class="review-text">“每天看下载次数决定玩哪款游戏，社区攻略齐全，希望葫芦侠越来越好！”</div>
-                <div class="review-date">2025年2月10日 · 已安装葫芦侠</div>
-            </div>
-        </div>
-        <div class="more-btn">
-            <button id="moreReviewsBtn"><i class="fas fa-plus-circle"></i> 查看更多玩家热评 (15w+)</button>
-        </div>
+        <div class="review-scroll" id="reviewScroll"><div class="review-track" id="reviewTrack"></div></div>
     </div>
-
     <!-- 游戏推荐卡片区域 -->
     <div class="game-recommend">
-        <h3>
-            <i class="fas fa-gamepad" style="color:#f57c00;"></i> 
-            热门游戏推荐
-            <span style="font-size: 0.8rem; background: #e8f5e9; padding: 4px 12px; border-radius: 20px;">今日首发</span>
-        </h3>
+        <h3><i class="fas fa-gamepad" style="color:#f57c00;"></i> 热门游戏推荐 <span style="font-size:0.8rem; background:#e8f5e9; padding:4px 12px; border-radius:20px;">今日首发</span></h3>
         <div class="recommend-grid">
-            <div class="recommend-card">
-                <div class="game-cover">
-                    <i class="fas fa-dragon"></i>
-                </div>
-                <div class="game-detail">
-                    <h4>圣斗士星矢：正义传说</h4>
-                    <div class="game-tags">
-                        <span class="tag">卡牌</span>
-                        <span class="tag">动漫IP</span>
-                        <span class="tag">免费版</span>
-                    </div>
-                    <div class="online-count"><i class="fas fa-users"></i> 111,136人在线 · 今日下载 2.3w</div>
-                    <div class="game-buttons">
-                        <button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button>
-                        <button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button>
-                    </div>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-mini">
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                    <p>扫码下载</p>
-                </div>
-            </div>
-            <div class="recommend-card">
-                <div class="game-cover">
-                    <i class="fas fa-chess-board"></i>
-                </div>
-                <div class="game-detail">
-                    <h4>斗罗大陆：逆转时空</h4>
-                    <div class="game-tags">
-                        <span class="tag">RPG</span>
-                        <span class="tag">免费版</span>
-                        <span class="tag">送10000代金券</span>
-                    </div>
-                    <div class="online-count"><i class="fas fa-gift"></i> 天注10000消费券 · 2017人在线</div>
-                    <div class="game-buttons">
-                        <button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button>
-                        <button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button>
-                    </div>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-mini">
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                    <p>扫码下载</p>
-                </div>
-            </div>
-            <div class="recommend-card">
-                <div class="game-cover">
-                    <i class="fas fa-puzzle-piece"></i>
-                </div>
-                <div class="game-detail">
-                    <h4>新不良人-免费版</h4>
-                    <div class="game-tags">
-                        <span class="tag">自走棋</span>
-                        <span class="tag">免费版</span>
-                        <span class="tag">每日送代金券</span>
-                    </div>
-                    <div class="online-count"><i class="fas fa-coins"></i> 免费领天赋10万 · 送5000代金券</div>
-                    <div class="game-buttons">
-                        <button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button>
-                        <button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button>
-                    </div>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-mini">
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                    <p>扫码下载</p>
-                </div>
-            </div>
-            <div class="recommend-card">
-                <div class="game-cover">
-                    <i class="fas fa-dinosaur"></i>
-                </div>
-                <div class="game-detail">
-                    <h4>最后的原始人-免费版</h4>
-                    <div class="game-tags">
-                        <span class="tag">卡牌</span>
-                        <span class="tag">免费版</span>
-                        <span class="tag">送648充值</span>
-                    </div>
-                    <div class="online-count"><i class="fas fa-users"></i> 79,845人在线 · 今日新服</div>
-                    <div class="game-buttons">
-                        <button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button>
-                        <button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button>
-                    </div>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-mini">
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                    <p>扫码下载</p>
-                </div>
-            </div>
+            <div class="recommend-card"><div class="game-cover"><img src="https://i.imgs.ovh/2026/03/28/Od1t0Y.png" alt="天途" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-mountain\'></i>';"></div><div class="game-detail"><h4>天途</h4><div class="game-tags"><span class="tag">0.1折仙路争锋</span><span class="tag">仙侠</span><span class="tag">免费版</span></div><div class="online-count"><i class="fas fa-tag"></i> 首充0.1折 · 登录送6480仙玉</div><div class="game-buttons"><button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button><button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button></div></div><div class="qr-section"><div class="qr-mini"><i class="fas fa-qrcode"></i></div><p>扫码下载</p></div></div>
+            <div class="recommend-card"><div class="game-cover"><img src="https://i.imgs.ovh/2026/03/28/Od1Kzb.png" alt="太阁立志2" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-samurai\'></i>';"></div><div class="game-detail"><h4>太阁立志2</h4><div class="game-tags"><span class="tag">0.1折论剑江湖</span><span class="tag">策略</span><span class="tag">武将养成</span></div><div class="online-count"><i class="fas fa-sword"></i> 0.1折超值 · 名将招募概率提升</div><div class="game-buttons"><button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button><button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button></div></div><div class="qr-section"><div class="qr-mini"><i class="fas fa-qrcode"></i></div><p>扫码下载</p></div></div>
+            <div class="recommend-card"><div class="game-cover"><img src="https://i.imgs.ovh/2026/03/28/Od1p21.png" alt="皇家骑士" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-ship\'></i>';"></div><div class="game-detail"><h4>皇家骑士</h4><div class="game-tags"><span class="tag">0.1折航海大冒险</span><span class="tag">卡牌</span><span class="tag">海战</span></div><div class="online-count"><i class="fas fa-compass"></i> 航海启航 · 首充0.1折送SSR船长</div><div class="game-buttons"><button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button><button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button></div></div><div class="qr-section"><div class="qr-mini"><i class="fas fa-qrcode"></i></div><p>扫码下载</p></div></div>
+            <div class="recommend-card"><div class="game-cover"><img src="https://i.imgs.ovh/2026/03/28/Od1IXn.png" alt="天神赵子龙" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-horse-head\'></i>';"></div><div class="game-detail"><h4>天神赵子龙</h4><div class="game-tags"><span class="tag">0.1折新放置三国</span><span class="tag">放置</span><span class="tag">三国</span></div><div class="online-count"><i class="fas fa-crown"></i> 0.1折畅玩 · 送神将赵子龙</div><div class="game-buttons"><button class="btn-download-game"><i class="fab fa-android"></i> Android下载</button><button class="btn-ios-game"><i class="fab fa-apple"></i> iOS版下载</button></div></div><div class="qr-section"><div class="qr-mini"><i class="fas fa-qrcode"></i></div><p>扫码下载</p></div></div>
         </div>
-        <div class="view-more">
-            <button id="moreGamesBtn"><i class="fas fa-plus"></i> 查看更多热门游戏</button>
-        </div>
+        <div class="view-more"><button id="moreGamesBtn"><i class="fas fa-plus"></i> 查看更多热门游戏</button></div>
     </div>
 </div>
-
-<!-- 右侧悬浮二维码（保持正常大小） -->
+<!-- 右侧悬浮二维码 -->
 <div class="qr-float">
-    <div class="qr-icon">
-        <img src="https://i.imgs.ovh/2026/03/27/OYMt9m.png" alt="葫芦侠图标" onerror="this.style.display='none'">
-    </div>
-    <div class="mock-qr">
-        <i class="fas fa-qrcode"></i>
-    </div>
+    <div class="qr-icon"><img src="https://f1.gsxx.sh.cn/gsxx/imgfile/20250910/10174214lccc.png" alt="葫芦侠图标" onerror="this.onerror=null; this.src='https://i.imgs.ovh/2026/03/27/OYMt9m.png';"></div>
+    <div class="mock-qr"><i class="fas fa-qrcode"></i></div>
     <p>扫码下载APP</p>
     <span style="font-size:10px;">畅玩各类手游</span>
 </div>
-
-<!-- 底部详细信息区域 -->
+<!-- 底部 -->
 <div class="footer-detailed">
     <div class="container">
-        <div class="company-intro">
-            <h3>葫芦侠 · 潮流的玩机社区</h3>
-            <p>广州侠聚网络科技有限公司成立于2015年，是国内领先的手游分发与玩家社区平台，致力于“让每一位玩家享受更纯粹的游戏乐趣”，提供海量游戏资源、辅助工具及活跃的玩家交流圈。</p>
-        </div>
-
-        <div class="info-grid">
-            <div class="info-item"><i class="fas fa-building"></i> 广州侠聚网络科技有限公司</div>
-            <div class="info-item"><i class="fas fa-phone-alt"></i> 客服热线：020-6688 1234</div>
-            <div class="info-item"><i class="fas fa-envelope"></i> 合作邮箱：business@huluxia.com</div>
-        </div>
-
-        <div class="badge-row">
-            <span><i class="fas fa-shield-alt"></i> 公安备案：粤公网安备 44010602003456号</span>
-            <span><i class="fas fa-globe"></i> 网站备案：粤ICP备15038271号</span>
-            <span><i class="fas fa-check-circle"></i> 诚信经营示范单位</span>
-        </div>
-
-        <div class="footer-links-detailed">
-            <a href="#">关于我们</a>
-            <a href="#">联系我们</a>
-            <a href="#">免责声明</a>
-            <a href="#">隐私政策</a>
-            <a href="#">用户协议</a>
-            <a href="#">家长监护</a>
-            <a href="#">侵权投诉</a>
-        </div>
-
-        <div class="version-info">
-            <span><i class="fas fa-code-branch"></i> 版本号：6.68.0.2108</span>
-            <span><i class="fas fa-calendar-alt"></i> 更新时间：2026.03.27</span>
-            <span><i class="fas fa-mobile-alt"></i> 应用名称：葫芦侠 · 玩机社区</span>
-            <span><i class="fas fa-shield-alt"></i> 应用权限</span>
-            <span><i class="fas fa-lock"></i> 隐私协议</span>
-        </div>
-
-        <div class="copyright-detailed">
-            <p>© 2015-2026 葫芦侠 huluxia.com 版权所有 | 地址：广东省广州市天河区黄埔大道西118号勤建大厦19层</p>
-            <p style="margin-top: 8px;">抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
-        </div>
+        <div class="company-intro"><h3>葫芦侠 · 潮流的玩机社区</h3><p>广州侠聚网络科技有限公司成立于2015年，是国内领先的手游分发与玩家社区平台，致力于“让每一位玩家享受更纯粹的游戏乐趣”，提供海量游戏资源、辅助工具及活跃的玩家交流圈。</p></div>
+        <div class="info-grid"><div class="info-item"><i class="fas fa-building"></i> 广州侠聚网络科技有限公司</div><div class="info-item"><i class="fas fa-phone-alt"></i> 客服热线：020-6688 1234</div><div class="info-item"><i class="fas fa-envelope"></i> 合作邮箱：business@huluxia.com</div></div>
+        <div class="badge-row"><span><i class="fas fa-shield-alt"></i> 公安备案：粤公网安备 44010602003456号</span><span><i class="fas fa-globe"></i> 网站备案：粤ICP备15038271号</span><span><i class="fas fa-check-circle"></i> 诚信经营示范单位</span></div>
+        <div class="footer-links-detailed"><a href="#">关于我们</a><a href="#">联系我们</a><a href="#">免责声明</a><a href="#">隐私政策</a><a href="#">用户协议</a><a href="#">家长监护</a><a href="#">侵权投诉</a></div>
+        <div class="version-info"><span><i class="fas fa-code-branch"></i> 版本号：6.68.0.2108</span><span><i class="fas fa-calendar-alt"></i> 更新时间：2026.03.27</span><span><i class="fas fa-mobile-alt"></i> 应用名称：葫芦侠 · 玩机社区</span><span><i class="fas fa-shield-alt"></i> 应用权限</span><span><i class="fas fa-lock"></i> 隐私协议</span></div>
+        <div class="copyright-detailed"><p>© 2015-2026 葫芦侠 huluxia.com 版权所有 | 地址：广东省广州市天河区黄埔大道西118号勤建大厦19层</p><p style="margin-top:8px;">抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p></div>
     </div>
 </div>
 
 <script>
-    // 轮播图逻辑
+    // 产品中心轮播
     const slides = document.querySelectorAll('.carousel-slide');
     const slidesContainer = document.getElementById('carouselSlides');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsContainer = document.getElementById('carouselDots');
-    let currentIndex = 0;
-    let autoTimer;
+    const prev = document.getElementById('prevBtn');
+    const next = document.getElementById('nextBtn');
+    const dots = document.getElementById('carouselDots');
+    let idx = 0, timer;
+    function update() {
+        slidesContainer.style.transform = `translateX(-${idx * 100}%)`;
+        document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    function go(i) { idx = (i + slides.length) % slides.length; update(); resetAuto(); }
+    function nextSlide() { go(idx + 1); }
+    function prevSlide() { go(idx - 1); }
+    function resetAuto() { clearInterval(timer); timer = setInterval(nextSlide, 4000); }
+    slides.forEach((_, i) => { let d = document.createElement('div'); d.className = 'dot'; if (i === 0) d.classList.add('active'); d.onclick = () => go(i); dots.appendChild(d); });
+    prev.onclick = prevSlide; next.onclick = nextSlide; resetAuto();
+    slides.forEach((s, i) => s.onclick = () => alert(['葫芦侠·畅玩各类手游的神器·江湖路漫漫','葫芦侠·玩机社区','葫芦侠虚拟机·玩游戏的虚拟机'][i] || '葫芦侠产品'));
 
-    function updateCarousel() {
-        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        document.querySelectorAll('.dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
+    // 评论数据
+    const base = [
+        { name:'葫芦小金刚', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>', text:'“在葫芦侠找到超多游戏资源，下载量真实可见，装机总数一目了然，社区氛围超棒！”', date:'2025年2月18日 · 来自葫芦侠APP' },
+        { name:'夜风侠', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“装机总数突破1.2亿让我更信赖平台，虚拟机神器真的流畅，扫码下载超方便。”', date:'2025年2月15日 · 葫芦侠PC端' },
+        { name:'搞机少年', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“每天看下载次数决定玩哪款游戏，社区攻略齐全，希望葫芦侠越来越好！”', date:'2025年2月10日 · 已安装葫芦侠' },
+        { name:'侠客阿飞', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“虚拟机太强了，多开游戏不卡顿，葫芦侠永远的神！”', date:'2025年2月8日 · 葫芦侠APP' },
+        { name:'技术宅拯救世界', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“辅助工具很实用，社区攻略齐全，已推荐给朋友。”', date:'2025年2月5日 · 葫芦侠PC端' },
+        { name:'葫芦侠老用户', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“从2018年开始用，越来越好用，装机总数说明一切！”', date:'2025年2月1日 · 已安装葫芦侠' },
+        { name:'游戏王者', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“下载速度快，资源丰富，每天必刷的社区。”', date:'2025年1月28日 · 来自葫芦侠APP' },
+        { name:'云玩家', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“虚拟机玩大型手游无压力，强烈推荐！”', date:'2025年1月25日 · 葫芦侠PC端' },
+        { name:'林中小屋', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“社区氛围友好，能找到很多志同道合的玩家。”', date:'2025年1月20日 · 已安装葫芦侠' },
+        { name:'深海鱼', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“每天都要刷一下葫芦侠，已经成为习惯。”', date:'2025年1月15日 · 葫芦侠APP' },
+        { name:'喵星人', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“虚拟机玩手游太流畅了，赞！”', date:'2025年1月10日 · 葫芦侠PC端' },
+        { name:'汪星人', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“社区里的攻略特别实用，很多隐藏技巧。”', date:'2025年1月5日 · 已安装葫芦侠' },
+        { name:'流星雨', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“活动福利很多，已经领到不少代金券。”', date:'2024年12月28日 · 来自葫芦侠APP' },
+        { name:'火山哥', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“每天都有新游戏推荐，不怕没游戏玩。”', date:'2024年12月20日 · 葫芦侠PC端' },
+        { name:'清风徐来', stars:'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>', text:'“葫芦侠是手机必备软件，没有之一。”', date:'2024年12月15日 · 已安装葫芦侠' }
+    ];
+    const reaction = ['😜','😂','🤣','😎','🤔','😤','💢','😭','🥴','😱','🤯','🥵','😈','👻','💀'];
+    const reviews = [];
+    for (let i=0; i<40; i++) {
+        let b = base[i%base.length];
+        let seed = (b.name + (i>=15?Math.floor(i/5)+1:'')).length + i;
+        let type = seed % 4;  // 0,1,2,3 四种类型，其中 type=3 为葫芦侠图标
+        let avatar = '';
+        if (type === 0) {
+            let idx = (seed % 100) + 1;
+            let gender = idx%2===0 ? 'men' : 'women';
+            avatar = `<img src="https://randomuser.me/api/portraits/${gender}/${idx}.jpg" onerror="this.onerror=null;this.src='https://randomuser.me/api/portraits/lego/${idx}.jpg';">`;
+        } else if (type === 1) {
+            avatar = `<img src="https://api.dicebear.com/9.x/adventurer/svg?seed=${encodeURIComponent(b.name+i)}&backgroundColor=b6e3f4">`;
+        } else if (type === 2) {
+            let emoji = reaction[seed % reaction.length];
+            avatar = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f9f3e0,#ffe6c7);border-radius:50%;font-size:1.8rem;">${emoji}</div>`;
+        } else {
+            // 葫芦侠图标 (使用固定图标)
+            avatar = `<img src="https://i.imgs.ovh/2026/03/27/OYMt9m.png" alt="葫芦侠" style="width:100%;height:100%;object-fit:cover;">`;
+        }
+        reviews.push({
+            avatar: avatar,
+            name: i<15 ? b.name : `${b.name}${Math.floor(i/5)+1}`,
+            stars: b.stars,
+            text: b.text,
+            date: `2025年${Math.floor(Math.random()*3)+1}月${Math.floor(Math.random()*28)+1}日 · 葫芦侠用户`
         });
     }
-
-    function goToSlide(index) {
-        currentIndex = (index + slides.length) % slides.length;
-        updateCarousel();
-        resetAutoPlay();
-    }
-
-    function nextSlide() {
-        goToSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        goToSlide(currentIndex - 1);
-    }
-
-    function resetAutoPlay() {
-        if (autoTimer) clearInterval(autoTimer);
-        autoTimer = setInterval(nextSlide, 4000);
-    }
-
-    // 创建指示点
-    slides.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    });
-
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-    resetAutoPlay();
-
-    // 点击轮播图片提示
-    document.querySelectorAll('.carousel-slide').forEach((slide, idx) => {
-        slide.addEventListener('click', () => {
-            const titles = [
-                '葫芦侠 · 畅玩各类手游的神器 · 江湖路漫漫',
-                '葫芦侠 · 玩机社区',
-                '葫芦侠虚拟机 · 玩游戏的虚拟机'
-            ];
-            alert(titles[idx] || '葫芦侠产品');
+    const groups = [];
+    for (let i=0; i<reviews.length; i+=3) groups.push(reviews.slice(i,i+3));
+    const trackEl = document.getElementById('reviewTrack');
+    const container = document.getElementById('reviewScroll');
+    let anim = null, y = 0, h = 0;
+    function build() {
+        trackEl.innerHTML = '';
+        groups.forEach(g => {
+            let div = document.createElement('div'); div.className = 'review-group';
+            div.innerHTML = g.map(r => `<div class="review-item"><div class="avatar">${r.avatar}</div><div class="review-content"><div class="review-name">${r.name}<div class="stars">${r.stars}</div></div><div class="review-text">${r.text}</div><div class="review-date">${r.date}</div></div></div>`).join('');
+            trackEl.appendChild(div);
         });
-    });
+        let clones = Array.from(trackEl.children).map(c => c.cloneNode(true));
+        clones.forEach(c => trackEl.appendChild(c));
+    }
+    build();
+    function updateHeight() { h = trackEl.scrollHeight; if (h <= container.clientHeight && anim) cancelAnimationFrame(anim); }
+    function scrollStep() {
+        y -= 0.12;
+        let limit = h / 2;
+        if (Math.abs(y) >= limit) { y = 0; trackEl.style.transition = 'none'; trackEl.style.transform = 'translateY(0px)'; void trackEl.offsetHeight; trackEl.style.transition = ''; }
+        else trackEl.style.transform = `translateY(${y}px)`;
+        anim = requestAnimationFrame(scrollStep);
+    }
+    updateHeight();
+    anim = requestAnimationFrame(scrollStep);
+    window.addEventListener('resize', () => { updateHeight(); y=0; trackEl.style.transform='translateY(0px)'; });
 
-    // 其他交互
-    const btns = document.querySelectorAll('.btn-android, .btn-ios, .btn-download-game, .btn-ios-game');
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => alert('📲 下载示意：实际可跳转应用商店或APK下载页'));
-    });
-    const qrItems = document.querySelectorAll('.qr-code, .qr-section');
-    qrItems.forEach(qr => {
-        qr.addEventListener('click', () => alert('📱 扫码下载示意：扫描二维码即可安装葫芦侠APP'));
-    });
-    document.getElementById('moreReviewsBtn')?.addEventListener('click', () => {
-        alert('✨ 更多侠友热评加载中，超44w条真实评价等你来看！');
-    });
-    document.getElementById('moreGamesBtn')?.addEventListener('click', () => {
-        alert('🎮 更多热门游戏加载中，海量精品手游等你来玩！');
-    });
+    // 交互
+    document.querySelectorAll('.btn-android, .btn-ios, .btn-download-game, .btn-ios-game').forEach(btn => btn.addEventListener('click', () => alert('📲 下载示意：实际可跳转应用商店或APK下载页')));
+    document.querySelectorAll('.qr-code, .qr-section').forEach(qr => qr.addEventListener('click', () => alert('📱 扫码下载示意：扫描二维码即可安装葫芦侠APP')));
+    document.getElementById('moreGamesBtn')?.addEventListener('click', () => alert('🎮 更多热门游戏加载中，海量精品手游等你来玩！'));
 </script>
 </body>
 </html>
